@@ -32,7 +32,6 @@ class Generator(nn.Module):
 
         self.shot = cfg.kshot
         
-    
         C_content = content_enc['C_out']
         C_reference = comp_enc['C_out']
         self.content_encoder = content_enc_builder(C_in, C, **content_enc)  
@@ -79,7 +78,6 @@ class Generator(nn.Module):
 
         sr_features = self.rab(content_feats, learned_components, style_components)  
 
-
         global_style_features = self.Get_style_global(trg_unis, ref_unis, reference_feats, chars_sim_dict)
         all_features = self.Integrator(sr_features, content_feats, global_style_features)  
         out = self.decoder(all_features)
@@ -88,7 +86,6 @@ class Generator(nn.Module):
             self.reset_memory()
 
         return out, style_components   
-
 
 
     def encode_write_comb(self, style_ids, style_sample_index, style_imgs, reset_memory=True):
