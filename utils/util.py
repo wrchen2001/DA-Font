@@ -80,7 +80,6 @@ def print_numpy(x, val=True, shp=False):
             np.mean(x), np.min(x), np.max(x), np.median(x), np.std(x)))
 
 
-
 def mkdirs(paths):
     """create empty directories if they don't exist
 
@@ -102,5 +101,4 @@ def mkdir(path):
     """
     if not os.path.exists(path):
         os.makedirs(path)
-
 
