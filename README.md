@@ -29,28 +29,30 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
  >{梦、飞、龙、书、雪、月、花、山、海、云、星、雨、竹、茶、琴、棋、画、诗、酒、剑、...、etc}
 
 3)  Once the fonts and characters are prepared, use the script ```./datasets/font2image.py``` to render character images from the fonts. The directory structure should be organized as follows:
-  > Font Directory  
-  > |--| content  
-  > |&#8195; --| content_font  
-  > |&#8195; &#8195; --| content_font_char1.png  
-  > |&#8195; &#8195; --| content_font_char2.png  
-  > |&#8195; &#8195; --| ...  
-  > |--| train  
-  > |&#8195; --| train_font1  
-  > |&#8195; --| train_font2
-  > |&#8195; --| train_font3
-  > |&#8195; &#8195; --| train_font3_char1.png  
-  > |&#8195; &#8195; --| train_font3_char2.png  
-  > |&#8195; &#8195; --| ...  
-  > |&#8195; --| ...  
-  > |--| val  
-  > |&#8195; --| val_font1  
-  > |&#8195; --| val_font2
-  > |&#8195; --| val_font3
-  > |&#8195; &#8195; --| val_font3_char1.png  
-  > |&#8195; &#8195; --| val_font3_char2.png  
-  > |&#8195; &#8195; --| ...  
-  > |&#8195; --| ...  
+```
+Font Directory
+|-- content
+|   |-- content_font
+|   |   |-- content_font_char1.png
+|   |   |-- content_font_char2.png
+|   |   |-- ...
+|-- train
+|   |-- train_font1
+|   |-- train_font2
+|   |-- train_font3
+|   |   |-- train_font3_char1.png
+|   |   |-- train_font3_char2.png
+|   |   |-- ...
+|   |-- ...
+|-- val
+|   |-- val_font1
+|   |-- val_font2
+|   |-- val_font3
+|   |   |-- val_font3_char1.png
+|   |   |-- val_font3_char2.png
+|   |   |-- ...
+|   |-- ...
+```
 
 ### Construct meta files and LMDB environment
 1. The characters need to be split into training and validation sets, with each character saved in Unicode format. You can convert characters to Unicode using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```. 
