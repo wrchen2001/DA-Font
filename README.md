@@ -70,11 +70,37 @@ Font Directory
 
 ## Pre-train VQ-VAE
 
+When pre-training VQ-VAE, the reconstructed character object comes from train_unis in the content font, The training process can be found at ```VQ-VAE.py```. 
+
+Then use the pre-trained content encoder to calculate a similarity between all training and test characters and store it as a dictionary.
+> {'4E07': {'4E01': 0.2143, '4E03': 0.2374, ...}, '4E08': {'4E01': 0.1137, '4E03': 0.1020, ...}, ...}
+
 ## Train DA-Font
 
+Modify the configuration in the file ```./cfgs/custom.yaml```
+
+Some Keys
+* work_dir: the root directory for saved results. (keep same with the `saving_dir` above) 
+* data_path: path to data lmdb environment. (`saving_dir/lmdb`)
+* data_meta: path to train meta file. (`saving_dir/meta`)
+* content_font: the name of font you want to use as source font.
+* all_content_char_json: the json file which stores all train and val characters.  
+* other values are hyperparameters for training.
+
+```
+  python3 train.py task_name cfgs/custom.yaml
+    #--resume \path\to\your\pretrain_model.pdparams
+  ```
 
 ## Infer DA-Font
 
+```
+  python3 inference.py ./cfgs/custom.yaml \
+  --weight \path\to\saved_model.pdparams \
+  --content_font \path\to\content_imgs \
+  --img_path \path\to\test_imgs \
+  --saving_root ./infer_res
+  ```
 
 ## Acknowledgements
 Our project is based on [VQ-Font](https://github.com/awei669/VQ-Font) and [FsFont](https://github.com/tlc121/FsFont). We would like to express our sincere gratitude to our collaborators for their valuable supports and to the reviewers for their insightful feedback and suggestions.
