@@ -68,18 +68,20 @@ Font Directory
   --unseen_unis_file path\to\val_unis.json 
   ```
 
-## Pre-train VQ-VAE
-
-When pre-training VQ-VAE, the reconstructed character object comes from train_unis in the content font, The training process can be found at ```VQ-VAE.py```. 
+## Training
+The training process is divided into two stages: 1）Pre-training the content encoder and codebook via [VQ-VAE](https://arxiv.org/abs/1711.00937), 2）Training the few shot font generation model via [GAN](https://dl.acm.org/doi/abs/10.1145/3422622). 
+### Pre-train VQ-VAE
+When pre-training VQ-VAE, the reconstructed character object comes from train_unis in the content font, The training process can be found at ```./model/VQ-VAE.ipynb```. 
 
 Then use the pre-trained content encoder to calculate a similarity between all training and test characters and store it as a dictionary.
 > {'4E07': {'4E01': 0.2143, '4E03': 0.2374, ...}, '4E08': {'4E01': 0.1137, '4E03': 0.1020, ...}, ...}
 
-## Train DA-Font
+
+### Few shot font generation
 
 Modify the configuration in the file ```./cfgs/custom.yaml```
 
-Some Keys
+Keys
 * work_dir: the root directory for saved results. (keep same with the `saving_dir` above) 
 * data_path: path to data lmdb environment. (`saving_dir/lmdb`)
 * data_meta: path to train meta file. (`saving_dir/meta`)
@@ -87,7 +89,8 @@ Some Keys
 * all_content_char_json: the json file which stores all train and val characters.  
 * other values are hyperparameters for training.
 
-```
+ Run scripts
+ ```
   python3 train.py task_name cfgs/custom.yaml
     #--resume \path\to\your\pretrain_model.pdparams
   ```
