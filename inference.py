@@ -21,7 +21,6 @@ from pathlib import Path
 from datasets import get_fixedref_loader
 
 
-
 def getCharList(root):
     '''
     getCharList
@@ -36,7 +35,6 @@ def getCharList(root):
         ch = os.path.basename(img_path).split('.')[0]    
         charlist.append(ch)  
     return charlist
-
 
 
 def getMetaDict(image_root_list, content_name, cr_mapping):
