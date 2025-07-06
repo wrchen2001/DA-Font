@@ -1,8 +1,8 @@
 use_half: False
 use_ddp: False
 
-vae_pth: ./weight/VQ-VAE_Parms_chn_.pth  # path/to/save/pre-trained model
-sim_path: ./weight/all_char_similarity_unicode.json  # path/to/save/content_similarity
+vae_pth: ./pretrained_weights/VQ-VAE_Parms_chn_.pth  # path/to/save/pre-trained model
+sim_path: ./pretrained_weights/all_char_similarity_unicode.json  # path/to/save/content_similarity
 work_dir: ./results/your_task_name/  # workspace
 data_path: ./results/your_task_name/lmdb/  # path/to/saved/lmdb
 data_meta: ./results/your_task_name/meta/train.json  # meta/train.json
