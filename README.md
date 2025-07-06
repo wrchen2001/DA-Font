@@ -52,10 +52,8 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
   > |&#8195; &#8195; --| ...  
   > |&#8195; --| ...  
 
-### Build meta files and lmdb environment
-1. Split all characters into train characters and val characters with unicode format and save them into json files, you can convert the utf8 format to unicode by using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```. 
- > train_unis: ["4E00", "4E01", ...]  
-  > val_unis: ["9576", "501F", ...]
+### Construct meta files and LMDB environment
+1. The characters need to be split into training and validation sets, with each character saved in Unicode format. You can convert characters to Unicode using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```. 
 
 2. Run script ```./build_trainset.sh```
 ```
