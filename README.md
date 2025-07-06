@@ -22,7 +22,7 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
 
 ## Data Preparation
 ### Images and Characters
-1)  First, collect a set of font files in .ttf (TrueType Font) or .otf (OpenType Font) format. These fonts should be divided into three groups: content font, training fonts, and validation fonts. To ensure the model effectively learns style variations, it's recommended that the training fonts exhibit noticeable style diversity. In our experiments, the fonts were sourced from  [here](https://www.foundertype.com/).  
+1)  First, collect a set of font files in .ttf (TrueType Font) or .otf (OpenType Font) format. These fonts should be divided into three groups: content font, training fonts, and validation fonts. To ensure the model effectively learns style variations, it's recommended that the training fonts exhibit noticeable style diversity. In our experiments, the fonts were sourced from [here](https://www.foundertype.com/).  
 
 2)  Next, determine the target character set for both training and testing. For example, the first-level Chinese character set contains 3500 commonly used characters:
 
@@ -57,7 +57,7 @@ Font Directory
 ### Construct meta files and LMDB environment
 1. The characters need to be split into training and validation sets, with each character saved in Unicode format. You can convert characters to Unicode using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```.
 
-2. Execute the following command to generate the LMDB datasets.
+2. Execute the following command to generate the LMDB files:
 ```
   python3 ./build_dataset/build_meta4train.py \
   --saving_dir ./results/your_task_name/ \
