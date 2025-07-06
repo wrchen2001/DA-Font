@@ -67,8 +67,25 @@ Organize directories structure as below:
   --unseen_unis_file path\to\val_unis.json 
   ```
 
+## Pre-train VQ-VAE
 
+## Train DA-Font
+
+
+## Infer DA-Font
 
 
 ## Acknowledgements
 Our project is based on [VQ-Font](https://github.com/awei669/VQ-Font) and [FsFont](https://github.com/tlc121/FsFont). We would like to express our sincere gratitude to our collaborators for their valuable supports and to the reviewers for their insightful feedback and suggestions.
+
+## Citation
+
+@InProceedings{Chen_2025_MM,
+    author    = {Weiran Chen and Guiqian Zhu and Ying Li and Yi Ji and Chunping Liu},
+    title     = {DA-Font: Few-Shot Font Generation via Dual-Attention Hybrid Integration},
+    booktitle = {Proceedings of the {ACM} International Conference on Multimedia, {MM}},
+    month     = {October},
+    year      = {2025},
+    pages     = {xxxx-xxxX}
+}
+```
