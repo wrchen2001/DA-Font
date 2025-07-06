@@ -55,9 +55,9 @@ Font Directory
 ```
 
 ### Construct meta files and LMDB environment
-1. The characters need to be split into training and validation sets, with each character saved in Unicode format. You can convert characters to Unicode using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```. 
+1. The characters need to be split into training and validation sets, with each character saved in Unicode format. You can convert characters to Unicode using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```.
 
-2. Run script ```./build_trainset.sh```
+2. Run script ```./build_trainset.sh``` to generate the LMDB datasets.
 ```
   python3 ./build_dataset/build_meta4train.py \
   --saving_dir ./results/your_task_name/ \
