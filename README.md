@@ -30,26 +30,26 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
 
 3)  After that, draw all font images via ```./datasets/font2image.py```.
 * Organize directories structure as below: 
-  > Font Directory  
-  > |--| content  
-  > |&#8195; --| content_font  
-  > |&#8195; &#8195; --| content_font_char1.png  
-  > |&#8195; &#8195; --| content_font_char2.png  
-  > |&#8195; &#8195; --| ...  
-  > |--| train  
-  > |&#8195; --| train_font1  
-  > |&#8195; --| train_font2  
-  > |&#8195; &#8195; --| train_font2_char1.png  
-  > |&#8195; &#8195; --| train_font2_char2.png  
-  > |&#8195; &#8195; --| ...  
-  > |&#8195; --| ...  
-  > |--| val  
-  > |&#8195; --| val_font1  
-  > |&#8195; --| val_font2  
-  > |&#8195; &#8195; --| val_font2_char1.png  
-  > |&#8195; &#8195; --| val_font2_char2.png  
-  > |&#8195; &#8195; --| ...  
-  > |&#8195; --| ...
+> Font Directory  
+> |--| content  
+> |&#8195; --| content_font  
+> |&#8195; &#8195; --| content_font_char1.png  
+> |&#8195; &#8195; --| content_font_char2.png  
+> |&#8195; &#8195; --| ...  
+> |--| train  
+> |&#8195; --| train_font1  
+> |&#8195; --| train_font2  
+> |&#8195; &#8195; --| train_font2_char1.png  
+> |&#8195; &#8195; --| train_font2_char2.png  
+> |&#8195; &#8195; --| ...  
+> |&#8195; --| ...  
+> |--| val  
+> |&#8195; --| val_font1  
+> |&#8195; --| val_font2  
+> |&#8195; &#8195; --| val_font2_char1.png  
+> |&#8195; &#8195; --| val_font2_char2.png  
+> |&#8195; &#8195; --| ...  
+> |&#8195; --| ...
 
 ### Build meta files and lmdb environment
 1. Split all characters into train characters and val characters with unicode format and save them into json files, you can convert the utf8 format to unicode by using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```. 
@@ -58,14 +58,14 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
 
 2. Run script ```./build_trainset.sh```
 * ```
-  python3 ./build_dataset/build_meta4train.py \
-  --saving_dir ./results/your_task_name/ \
-  --content_font path\to\content \
-  --train_font_dir path\to\training_font \
-  --val_font_dir path\to\validation_font \
-  --seen_unis_file path\to\train_unis.json \
-  --unseen_unis_file path\to\val_unis.json 
-  ```
+python3 ./build_dataset/build_meta4train.py \
+--saving_dir ./results/your_task_name/ \
+--content_font path\to\content \
+--train_font_dir path\to\training_font \
+--val_font_dir path\to\validation_font \
+--seen_unis_file path\to\train_unis.json \
+--unseen_unis_file path\to\val_unis.json 
+```
 
 
 
