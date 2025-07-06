@@ -22,14 +22,13 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
 
 ## Data Preparation
 ### Images and Characters
-1)  Collect a series of '.ttf'(TrueType) or '.otf'(OpenType) files to generate images for training models. and divide them into source font and training set and test set. In order to better learn different styles, there should be differences and diversity in font styles in the training set. The fonts we used in our paper can be found in [here](https://www.foundertype.com/).  
+1)  First, collect a set of font files in .ttf (TrueType Font) or .otf (OpenType Font) format. These fonts should be divided into three groups: content font, training fonts, and validation fonts. To ensure the model effectively learns style variations, it's recommended that the training fonts exhibit noticeable style diversity. In our experiments, the fonts were sourced from  [here](https://www.foundertype.com/).  
 
-2)  Secondly, specify the characters to be generated (including training characters and test characters), eg the first-level Chinese character table contains 3500 Chinese characters. 
+2)  Next, determine the target character set for both training and testing. For example, the first-level Chinese character set contains 3500 commonly used characters:
 
- >{乙、十、丁、厂、七、卜、人、入、儿、匕、几、九、力、刀、乃、又、干、三、七、干、...、etc}
+ >{梦、飞、龙、书、雪、月、花、山、海、云、星、雨、竹、茶、琴、棋、画、诗、酒、剑、...、etc}
 
-3)  After that, draw all font images via ```./datasets/font2image.py```.
-Organize directories structure as below: 
+3)  Once the fonts and characters are prepared, use the script ```./datasets/font2image.py``` to render character images from the fonts. The directory structure should be organized as follows:
   > Font Directory  
   > |--| content  
   > |&#8195; --| content_font  
@@ -38,16 +37,18 @@ Organize directories structure as below:
   > |&#8195; &#8195; --| ...  
   > |--| train  
   > |&#8195; --| train_font1  
-  > |&#8195; --| train_font2  
-  > |&#8195; &#8195; --| train_font2_char1.png  
-  > |&#8195; &#8195; --| train_font2_char2.png  
+  > |&#8195; --| train_font2
+  > |&#8195; --| train_font3
+  > |&#8195; &#8195; --| train_font3_char1.png  
+  > |&#8195; &#8195; --| train_font3_char2.png  
   > |&#8195; &#8195; --| ...  
   > |&#8195; --| ...  
   > |--| val  
   > |&#8195; --| val_font1  
-  > |&#8195; --| val_font2  
-  > |&#8195; &#8195; --| val_font2_char1.png  
-  > |&#8195; &#8195; --| val_font2_char2.png  
+  > |&#8195; --| val_font2
+  > |&#8195; --| val_font3
+  > |&#8195; &#8195; --| val_font3_char1.png  
+  > |&#8195; &#8195; --| val_font3_char2.png  
   > |&#8195; &#8195; --| ...  
   > |&#8195; --| ...  
 
