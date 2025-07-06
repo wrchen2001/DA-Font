@@ -39,7 +39,7 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
   > |&#8195; --| train_font1  
   > |&#8195; --| train_font2
   > |&#8195; --| train_font3
-  > |&#8195; &#8195; --| train_font3_char1.png  
+> |&#8195; &#8195; --| train_font3_char1.png  
   > |&#8195; &#8195; --| train_font3_char2.png  
   > |&#8195; &#8195; --| ...  
   > |&#8195; --| ...  
