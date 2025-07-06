@@ -11,13 +11,14 @@ Few-shot font generation aims to create new fonts with a limited number of glyph
 </div>
 
 ## Dependencies
->python >= 3.8
->torch >= 1.7.1
->torchvision >= 0.8.2
->sconf >= 0.2.5
->lmdb >= 1.6.2
->opencv-python >= 4.10.0.84
->scipy >= 1.10.1
+
+> python >= 3.8  
+> torch >= 1.7.1  
+> torchvision >= 0.8.2  
+> sconf >= 0.2.5  
+> lmdb >= 1.6.2  
+> opencv-python >= 4.10.0.84  
+> scipy >= 1.10.1
 
 ## Data Preparation
 ### Images and Characters
