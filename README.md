@@ -53,7 +53,7 @@ Organize directories structure as below:
 
 ### Build meta files and lmdb environment
 1. Split all characters into train characters and val characters with unicode format and save them into json files, you can convert the utf8 format to unicode by using ```hex(ord(ch))[2:].upper():```, examples can be found in ```./meta/```. 
-* > train_unis: ["4E00", "4E01", ...]  
+ > train_unis: ["4E00", "4E01", ...]  
   > val_unis: ["9576", "501F", ...]
 
 2. Run script ```./build_trainset.sh```
