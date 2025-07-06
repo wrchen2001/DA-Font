@@ -80,6 +80,7 @@ Our project is based on [VQ-Font](https://github.com/awei669/VQ-Font) and [FsFon
 
 ## Citation
 
+```
 @InProceedings{Chen_2025_MM,
     author    = {Weiran Chen and Guiqian Zhu and Ying Li and Yi Ji and Chunping Liu},
     title     = {DA-Font: Few-Shot Font Generation via Dual-Attention Hybrid Integration},
