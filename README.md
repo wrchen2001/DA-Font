@@ -68,35 +68,39 @@ Font Directory
   --unseen_unis_file path\to\val_unis.json 
   ```
 
-## Training Process
-The training process is divided into two stages: 1）Pre-training the content encoder and codebook via [VQ-VAE](https://arxiv.org/abs/1711.00937), 2）Training the few shot font generation model via [GAN](https://dl.acm.org/doi/abs/10.1145/3422622). 
-### Pre-train VQ-VAE
-When pre-training VQ-VAE, the reconstructed character object comes from train_unis in the content font, The training process can be found at ```./model/VQ-VAE.ipynb```. 
+## Training Workflow
 
-Then use the pre-trained content encoder to calculate a similarity between all training and test characters and store it as a dictionary.
+The overall training is divided into two stages:  
+1. Pre-training the content encoder and codebook based on [VQ-VAE](https://arxiv.org/abs/1711.00937).  
+2. Training the few-shot font generation framework with [GAN](https://dl.acm.org/doi/abs/10.1145/3422622).  
+### Pre-train the VQ-VAE
+The VQ-VAE is trained using the content font. The relevant training code is provided at ```VQ-VAE.py```.
+
+Once VQ-VAE pre-training is complete, use the trained content encoder to compute similarity scores between each character in the training and validation sets. The similarity information is stored in a dictionary format, for example:
 > {'4E07': {'4E01': 0.2143, '4E03': 0.2374, ...}, '4E08': {'4E01': 0.1137, '4E03': 0.1020, ...}, ...}
 
 
-### Train DA-Font
+### Train the DA-Font
 
-Modify the configuration in the file ```./cfgs/custom.yaml```
+Adjust the configuration file as needed in the file ```./cfgs/custom.yaml```
 
-Some Keys
-* work_dir: the root directory for saved results. (keep same with the `saving_dir` above) 
-* data_path: path to data lmdb environment. (`saving_dir/lmdb`)
-* data_meta: path to train meta file. (`saving_dir/meta`)
-* content_font: the name of font you want to use as source font.
-* all_content_char_json: the json file which stores all train and val characters.  
+Some Key Configuration Options:
+* work_dir: Directory to store all output results. (should match the saving_dir used during dataset preparation) 
+* data_path: Path to the LMDB dataset. (`saving_dir/lmdb`)
+* data_meta: Path to the meta information. (`saving_dir/meta`)
+* content_font: Specify the source font to be used.
+* all_content_char_json: JSON file listing all characters from both training and validation sets.
 * other values are hyperparameters for training.
 
- Run scripts
+Launch Training
  ```
   python3 train.py task_name cfgs/custom.yaml
     #--resume \path\to\your\pretrain_model.pdparams
   ```
 
-## Infer DA-Font
+## Infer the DA-Font
 
+Run the script
 ```
   python3 inference.py ./cfgs/custom.yaml \
   --weight \path\to\saved_model.pdparams \
@@ -106,7 +110,7 @@ Some Keys
   ```
 
 ## Acknowledgements
-Our project is based on [VQ-Font](https://github.com/awei669/VQ-Font) and [FsFont](https://github.com/tlc121/FsFont). We would like to express our sincere gratitude to our collaborators for their valuable supports and to the reviewers for their insightful feedback and suggestions.
+Our project is inspired and modified by [VQ-Font](https://github.com/awei669/VQ-Font) and [FsFont](https://github.com/tlc121/FsFont). We would like to express our sincere gratitude to our collaborators for their valuable supports and to the reviewers for their insightful feedback and suggestions.
 
 ## Citation
 
