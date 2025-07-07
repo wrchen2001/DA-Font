@@ -112,9 +112,11 @@ class CombinedTrainer(BaseTrainer):
                 # Update generator losses
                 self.add_gan_g_loss(real_font, real_uni, fake_font + fake_font_recon, fake_uni + fake_uni_recon)
                 self.add_pixel_loss(out_1, trg_imgs[0], self_infer_imgs)
-                self.add_corner_loss(out_1, trg_imgs[0])             
-                self.add_grid_loss(out_1, trg_imgs[0])
                 self.style_contrastive_loss(style_components_1, style_components_2, self.batch_size)
+                if self.step % self.cfg['print_freq'] == 0:
+                    self.add_corner_loss(out_1, trg_imgs[0])
+                    self.add_grid_loss(out_1, trg_imgs[0])
+
 
                 # Generator backward pass
                 self.g_backward() 
