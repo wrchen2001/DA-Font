@@ -121,6 +121,10 @@ Our project is inspired and modified by [VQ-Font](https://github.com/awei669/VQ-
     booktitle = {Proceedings of the {ACM} International Conference on Multimedia, {MM}},
     month     = {October},
     year      = {2025},
-    pages     = {xxxx-xxxX}
+    pages     = {xxxx-xxxx}
 }
 ```
+
+## Contact
+
+If you have any questions, please feel free to contact wrchen2023@stu.suda.edu.cn or wrchen2023@outlook.com.
