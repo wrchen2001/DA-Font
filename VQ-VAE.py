@@ -395,11 +395,3 @@ while True:
     with open('/pretrained_weights/all_char_similarity_unicode.json','w+') as file:
         file.write(dict_json)    
     break
-
-
-# with open('/data1/chenweiran/SecondPoint/weight50/all_char_similarity_unicode.json','r+') as file:
-#     content=file.read()
-    
-# content=json.loads(content) 
-# print(len(content))
-# print(content['8774'])
